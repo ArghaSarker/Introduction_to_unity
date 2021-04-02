@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 4e1a2ce889227304292391c79aef13e9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _virusPrefab: {fileID: 7354641134876448502, guid: b611f61730f8f0c4387a42896cb6fcae, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
