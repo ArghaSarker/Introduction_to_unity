@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 public class corona : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class corona : MonoBehaviour
     // speed initialized
     [SerializeField]
     private float _coronaSpeed = 7f;
+    [SerializeField]
+    private float _horizontalSpeed = 10f;
 
     [SerializeField] public Player _player;
     
@@ -26,6 +29,10 @@ public class corona : MonoBehaviour
         
         
         transform.Translate(Vector3.down * Time.deltaTime*_coronaSpeed, Space.World);
+        if (name.Contains("B117"))
+        {
+            transform.Translate(Vector3.right * UnityEngine.Random.Range(-3f, 3f) * Time.deltaTime * _horizontalSpeed , Space.World);
+        }
         
         if (transform.position.y < -8f)
         {
@@ -49,13 +56,23 @@ public class corona : MonoBehaviour
         
         else if (other.CompareTag("vaccine"))
         {
-            // _player.countPoint = +1 ; 
-            // 3. if vaccine hits corona--> destroy both
-            other.GetComponent<vaccine>().Point();
-            Debug.LogWarning("vaccine collided virus destroy both");
-            Destroy(this.gameObject);
-            Destroy(other.gameObject);
-            
+            // detect the uv light 
+            if ( other.name.Contains("UVLight"))
+            {
+
+                // destroying only the uv light
+                Destroy(this.gameObject);
+            }
+            else
+            { 
+                // 3. if vaccine hits corona--> destroy both
+                // other.GetComponent<vaccine>().Point();
+                Debug.LogWarning("vaccine collided virus destroy both");
+                // destroying bonth
+                Destroy(this.gameObject);
+                Destroy(other.gameObject);
+            }
+
         }
     }
 }

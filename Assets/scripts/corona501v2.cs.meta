@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: bf8719635854223468e9182ee514e306
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _evilVaccinePrefab: {fileID: 1390188385832146720, guid: 0deeb4ee2a112e14d9e0b352e28b0f8a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
