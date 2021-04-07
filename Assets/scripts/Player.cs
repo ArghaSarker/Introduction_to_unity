@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     
     // ---------------   for uv light  -------------- 
     [SerializeField] private GameObject _uvLight;
+    
+   // [SerializeField] private GameObject _Doughnut;
     //[SerializeField] 
     private bool _useUvlight = false;
     [SerializeField] private float _uvraytime = 5f;
     
-    [SerializeField] private float _life = 5f;
-    [SerializeField] private float _vaccinationRate = 1f;
+    //[SerializeField] private float _life = 5f;
+    [SerializeField] private float _vaccinationRate = 0.35f;
     [SerializeField] public float countPoint = 1f;
     
 
@@ -26,6 +28,10 @@ public class Player : MonoBehaviour
     // private float _createVirus = -1f;
     private MaterialPropertyBlock _mpb;
     private float _colorChannel = 1f; 
+    
+                         //---- for adding score --- // 
+
+    [SerializeField] private UIManager _uiManager;
     
     
     
@@ -51,6 +57,11 @@ public class Player : MonoBehaviour
 
     }
 
+    public void RelayScore(int score)
+    {
+        _uiManager.addScore(score);
+    }
+
     void vacciate()
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canVaccinate)
@@ -68,19 +79,12 @@ public class Player : MonoBehaviour
     }
 
     
-    public void damage()
+    public void damage(int count)
     {
-        // changing the color of the mat with every hit
-        // _colorChannel = _colorChannel - 0.5f;
-        // _mpb.SetColor("_Color",new Color(_colorChannel,0,_colorChannel,1.0f));
-        // this.GetComponent<Renderer>().SetPropertyBlock(_mpb);
         
+        _uiManager.countLife(count); 
         
-        
-        // destroying the object if it doesnt have any life left.
-        _life = _life - 1f;
-        
-        if (_life == 0)
+        if (_uiManager._life == 0)
         {
             Destroy(this.gameObject);
             // having null reference exception here  !!! ERROR !!!! 
@@ -126,13 +130,13 @@ public class Player : MonoBehaviour
         
         
         
-        if (transform.position.x > 8f)
+        if (transform.position.x > -1.52f)
         {
-            transform.position = new Vector3(8f,transform.position.y,0f);
+            transform.position = new Vector3(-1.52f,transform.position.y,0f);
         }
-        else if(transform.position.x < -20f)
+        else if(transform.position.x < -24f)
         { 
-            transform.position = new Vector3(-20f,transform.position.y,0f);
+            transform.position = new Vector3(-24f,transform.position.y,0f);
         }
         
         
@@ -140,9 +144,9 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x,-7f,0f);
         }
-        else if (transform.position.y > 13f)
+        else if (transform.position.y > 23f)
         {
-            transform.position = new Vector3(transform.position.x, 13f, 0f);
+            transform.position = new Vector3(transform.position.x, 23f, 0f);
         }
         
     }

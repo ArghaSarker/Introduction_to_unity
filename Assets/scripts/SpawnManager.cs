@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     
     // ------- for uvray ---------
     [SerializeField] private GameObject _uvrayprefab;
+    [SerializeField] private GameObject _doughnut;
+    [SerializeField] private float _doughnutrate = 15f;
     [SerializeField] private float _uvrayrate = 10f;
     
     
@@ -24,6 +26,8 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(SpawnSystem());
         StartCoroutine(SpawnUvray());
+        StartCoroutine(SpawnDoughnut());
+        
     }
 
     // Update is called once per frame
@@ -45,7 +49,7 @@ public class SpawnManager : MonoBehaviour
             
             //virus();
             // instantiate the viruses
-            Instantiate(_virusPrefabs[UnityEngine.Random.Range(0,_virusPrefabs.Count)], new Vector3(Random.Range(-20.0f, 8.0f), 14f, 0), Quaternion.identity,this.transform);
+            Instantiate(_virusPrefabs[UnityEngine.Random.Range(0,_virusPrefabs.Count)], new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity,this.transform);
             //wait for delay
             yield return new WaitForSeconds(_delay);
         }
@@ -59,10 +63,25 @@ public class SpawnManager : MonoBehaviour
             
             
             // instantiate the uvray
-            Instantiate(_uvrayprefab, new Vector3(Random.Range(-20.0f, 8.0f), 14f, 0), Quaternion.identity);
+            Instantiate(_uvrayprefab, new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity);
             Debug.LogWarning("uv has been created");
             //wait for delay
             yield return new WaitForSeconds(_uvrayrate);
+        }
+        
+    }
+    IEnumerator SpawnDoughnut()
+    {
+        // as long as the game is running
+        while (_spwanOn)
+        {
+            
+            
+            // instantiate the uvray
+            Instantiate(_doughnut, new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity);
+            Debug.LogWarning("Doughnut has been created");
+            //wait for delay
+            yield return new WaitForSeconds(_doughnutrate);
         }
         
     }

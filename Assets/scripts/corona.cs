@@ -31,7 +31,7 @@ public class corona : MonoBehaviour
         transform.Translate(Vector3.down * Time.deltaTime*_coronaSpeed, Space.World);
         if (name.Contains("B117"))
         {
-            transform.Translate(Vector3.right * UnityEngine.Random.Range(-3f, 3f) * Time.deltaTime * _horizontalSpeed , Space.World);
+            transform.Translate(Vector3.right * UnityEngine.Random.Range(-5f, 5f) * Time.deltaTime * _horizontalSpeed , Space.World);
         }
         
         if (transform.position.y < -8f)
@@ -49,7 +49,7 @@ public class corona : MonoBehaviour
         {
             // 2. if corona hits player --> player dead or damaged
             
-            other.GetComponent<Player>().damage(); 
+            other.GetComponent<Player>().damage(1); 
             Debug.LogWarning("this player collided with virus");
             Destroy(this.gameObject);
         }
@@ -62,6 +62,7 @@ public class corona : MonoBehaviour
 
                 // destroying only the uv light
                 Destroy(this.gameObject);
+               // GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(1);
             }
             else
             { 
@@ -71,6 +72,15 @@ public class corona : MonoBehaviour
                 // destroying bonth
                 Destroy(this.gameObject);
                 Destroy(other.gameObject);
+                //GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(1);
+            }
+
+            if (name.Contains("B117"))
+            {
+                GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(3);
+            }
+            else
+            {GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(1);
             }
 
         }

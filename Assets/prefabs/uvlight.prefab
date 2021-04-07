@@ -41,17 +41,17 @@ Light:
   m_GameObject: {fileID: 1848721919777848191}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6111682, g: 0.16834284, b: 0.9150943, a: 0.34509805}
-  m_Intensity: 2
+  m_Color: {r: 0.3076215, g: 0.08067818, b: 0.46226418, a: 0.7607843}
+  m_Intensity: 16.34
   m_Range: 225
-  m_SpotAngle: 105
+  m_SpotAngle: 36
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -176,17 +176,17 @@ Light:
   m_GameObject: {fileID: 2059029814337615986}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6111682, g: 0.16834284, b: 0.9150943, a: 0.34509805}
-  m_Intensity: 2
+  m_Color: {r: 0.3076215, g: 0.08067818, b: 0.46226418, a: 0.7607843}
+  m_Intensity: 16.34
   m_Range: 225
-  m_SpotAngle: 105
+  m_SpotAngle: 36
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedVaccine: 45
+  _rotationSpeed: 45
   point: 0
 --- !u!136 &2510489541506386394
 CapsuleCollider:
@@ -428,17 +429,17 @@ Light:
   m_GameObject: {fileID: 4699432403368317820}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6111682, g: 0.16834284, b: 0.9150943, a: 0.34509805}
-  m_Intensity: 2
+  m_Color: {r: 0.3076215, g: 0.08067818, b: 0.46226418, a: 0.7607843}
+  m_Intensity: 16.34
   m_Range: 225
-  m_SpotAngle: 105
+  m_SpotAngle: 36
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -563,17 +564,17 @@ Light:
   m_GameObject: {fileID: 7209497466921852198}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6111682, g: 0.16834284, b: 0.9150943, a: 0.34509805}
-  m_Intensity: 2
+  m_Color: {r: 0.3076215, g: 0.08067818, b: 0.46226418, a: 0.7607843}
+  m_Intensity: 16.34
   m_Range: 225
-  m_SpotAngle: 105
+  m_SpotAngle: 36
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -698,17 +699,17 @@ Light:
   m_GameObject: {fileID: 7615237223744533692}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6111682, g: 0.16834284, b: 0.9150943, a: 0.34509805}
-  m_Intensity: 2
+  m_Color: {r: 0.3076215, g: 0.08067818, b: 0.46226418, a: 0.7607843}
+  m_Intensity: 16.34
   m_Range: 225
-  m_SpotAngle: 105
+  m_SpotAngle: 36
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -833,17 +834,17 @@ Light:
   m_GameObject: {fileID: 8493064390182956769}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6111682, g: 0.16834284, b: 0.9150943, a: 0.34509805}
-  m_Intensity: 2
+  m_Color: {r: 0.3076215, g: 0.08067818, b: 0.46226418, a: 0.7607843}
+  m_Intensity: 16.34
   m_Range: 225
-  m_SpotAngle: 105
+  m_SpotAngle: 36
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 2
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05

@@ -32,7 +32,7 @@ public class vaccine : MonoBehaviour
             transform.Translate(Vector3.up * Time.deltaTime * _speedVaccine, Space.World);
 
 
-            if (transform.position.y > 15f)
+            if (transform.position.y > 25f)
             {
                 Destroy(this.gameObject);
             }
@@ -41,7 +41,7 @@ public class vaccine : MonoBehaviour
         {
             transform.Translate(Vector3.down * Time.deltaTime * _speedVaccine, Space.World);
 
-            if (transform.position.y < -15f)
+            if (transform.position.y < -25f)
             {
                 Destroy(this.gameObject);
             }

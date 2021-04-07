@@ -46,7 +46,7 @@ public class corona501v2 : MonoBehaviour
         {
             // 2. if corona hits player --> player dead or damaged
             
-            other.GetComponent<Player>().damage(); 
+            other.GetComponent<Player>().damage(1); 
             Debug.LogWarning("this player collided with virus");
             Destroy(this.gameObject);
         }
@@ -69,6 +69,7 @@ public class corona501v2 : MonoBehaviour
                 Destroy(this.gameObject);
                 Destroy(other.gameObject);
             }
+            GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(5);
 
         }
     }
