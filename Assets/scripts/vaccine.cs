@@ -15,6 +15,8 @@ public class vaccine : MonoBehaviour
     [SerializeField] public float point = 0f;
 
     private Player _player;
+
+    
         
         
     void Start()

@@ -111,7 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coronaSpeed: 7
+  _horizontalSpeed: 10
   _player: {fileID: 0}
+  _impectEffect: {fileID: 1473625048454486, guid: 284f05ab582ef494a9ab1dd8bc1e76ae, type: 3}
 --- !u!54 &1530186200
 Rigidbody:
   m_ObjectHideFlags: 0

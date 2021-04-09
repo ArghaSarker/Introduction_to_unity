@@ -7,15 +7,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] 
-    private TMP_Text _scoreText; 
-    [SerializeField] 
-    private TMP_Text _gameText;
-    [SerializeField] 
-    private TMP_Text _lifeText;
 
-    [SerializeField] 
-    private TMP_Text _gameOver;
+    public HealthStatus HealthStatus; 
+    
+    
+    [SerializeField] private TMP_Text _scoreText; 
+    [SerializeField] private TMP_Text _gameText;
+    [SerializeField] private TMP_Text _lifeText;
+
+    [SerializeField] private TMP_Text _gameOver;
+    
 
     private int _score = 0 ;
     public int _life = 5 ;
@@ -25,6 +26,7 @@ public class UIManager : MonoBehaviour
     {
         _scoreText.text = "Score : " + _score;
         _lifeText.text = "Life :" + _life;
+        HealthStatus.setMaxHealth(5);
 
     }
 
@@ -37,6 +39,8 @@ public class UIManager : MonoBehaviour
         {
             _gameOver.text = "You Failed to Protect the Earth!!!" ; 
         }
+        else if (_life > 5)
+            _life = 5;
     }
 
     public void addScore(int score)
@@ -47,6 +51,7 @@ public class UIManager : MonoBehaviour
     public void countLife(int life)
     {
         _life -= life;
+        HealthStatus.setHealth(_life);
     }
     
 }

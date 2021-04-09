@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _uvraytime = 5f;
     
     //[SerializeField] private float _life = 5f;
-    [SerializeField] private float _vaccinationRate = 0.35f;
+    [SerializeField] private float _vaccinationRate = 0.15f;
     [SerializeField] public float countPoint = 1f;
     
 
@@ -26,19 +26,33 @@ public class Player : MonoBehaviour
 
     private float _canVaccinate = -1f; 
     // private float _createVirus = -1f;
-    private MaterialPropertyBlock _mpb;
-    private float _colorChannel = 1f; 
+    // private MaterialPropertyBlock _mpb;
+    // private float _colorChannel = 1f;
+// [SerializeField]
+//     public Transform firepoint;  
+//    public LineRenderer lineRenderer; 
     
                          //---- for adding score --- // 
 
     [SerializeField] private UIManager _uiManager;
+
     
     
     
+                  // ------------- for bubble sheild - ---------------- // 
+    
+    [SerializeField] 
+    private GameObject _bubbleSheild;
+    private bool _useBubbleSheild = false;
+    private float _sheildtime = 5f;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         _useUvlight = false;
+        _useBubbleSheild = false; 
         
     
     // geting back to origin
@@ -51,6 +65,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _bubbleSheild.SetActive(true);
         playerMovment();
         vacciate();
         
@@ -69,11 +84,20 @@ public class Player : MonoBehaviour
             Debug.Log("space pressed!");
             Debug.LogWarning("vaccine has been created!");
             _canVaccinate = Time.time + _vaccinationRate;
+
             if (!_useUvlight)
-                Instantiate(_vaccinePrefab, transform.position + new Vector3(0,2.3f,0), Quaternion.identity);
-            else
             {
+                Instantiate(_vaccinePrefab, transform.position + new Vector3(0, 2.3f, 0), Quaternion.identity);
+            }
+
+
+          
+            else
+            
+            {
+                
                 Instantiate(_uvLight, transform.position + new Vector3(0,3.5f,0), Quaternion.identity);  
+                
             }
         }
     }
@@ -166,4 +190,76 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(_uvraytime);
         _useUvlight = false; 
     }
+    
+    
+    
+    // ----------------- for bubble sheild ------------ // 
+
+    public void sheildActivation()
+    {
+       // _bubbleSheild.SetActive(true);
+        
+        if (_useBubbleSheild)
+                
+        {
+           // _bubbleSheild.SetActive(true);
+            Debug.LogWarning("Sheild has been activated");
+            
+            Instantiate(_bubbleSheild, transform.position, Quaternion.identity);
+                
+        }
+        
+    }
+
+    public void enableSheild()
+    {
+        
+        _useBubbleSheild = true;
+        
+        sheildActivation();
+        Debug.LogWarning("bubble sheild enabler accessed");
+        
+        
+       
+        StartCoroutine(disableSheild());
+
+    }
+
+    public IEnumerator disableSheild()
+    {
+       // _bubbleSheild.SetActive(true);
+
+        yield return new WaitForSeconds(_sheildtime);
+       // DestroyImmediate(_bubbleSheild,true);
+       _bubbleSheild.SetActive(false);
+        _useBubbleSheild = false;
+       
+        
+
+    }
+    
+    //-------------- for laser gun -------------- // 
+    // public float shootRate;
+    // private float m_shootRateTimeStamp;
+    //
+    // [SerializeField]
+    // public GameObject m_shotPrefab;
+    //
+    // RaycastHit hit;
+    // float range = 1000.0f;
+
+
+    // void shootRay()
+    // {
+    //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //     if (Physics.Raycast(ray, out hit, range))
+    //     {
+    //         GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
+    //        // laser.GetComponent<ShotBehavior>().setTarget(hit.point);
+    //         GameObject.Destroy(laser, 2f);
+    //
+    //
+    //     }
+    //
+    // }
 }

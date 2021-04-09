@@ -7,11 +7,13 @@ public class corona501v2 : MonoBehaviour
     [SerializeField]
     private GameObject _evilVaccinePrefab; 
     [SerializeField]
-    private float _alienSpeed = 10f;
+    private float _alienSpeed = 6f;
     [SerializeField]
     private float _canInfect = -1f;
     [SerializeField]
     private float _infectionRate = 1f;
+
+    [SerializeField] private int _alienlife = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,12 @@ public class corona501v2 : MonoBehaviour
             
         }
     }
-    
+
+    void alienDamage()
+    {
+        _alienlife -= _alienlife ;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Debug.Log(other.name);
@@ -50,7 +57,7 @@ public class corona501v2 : MonoBehaviour
             Debug.LogWarning("this player collided with virus");
             Destroy(this.gameObject);
         }
-        
+                    //-----------------ommiting this lines -------------- //
         else if (other.CompareTag("vaccine"))
         {
             // detect the uv light 
@@ -61,13 +68,26 @@ public class corona501v2 : MonoBehaviour
                 Destroy(this.gameObject);
             }
             else
+            
+                    // ----------have to be careful ------------- // 
             { 
                 // 3. if vaccine hits corona--> destroy both
                 // other.GetComponent<vaccine>().Point();
-                Debug.LogWarning("vaccine collided virus destroy both");
+                Debug.LogWarning("Aliens are getting hit.. yeeesssss!! ");
                 // destroying bonth
-                Destroy(this.gameObject);
-                Destroy(other.gameObject);
+                if (_alienlife == 0)
+                {   Destroy(this.gameObject);
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    //Destroy(this.gameObject);
+                    alienDamage();
+                    Destroy(other.gameObject);
+                }
+                //
+                // Destroy(this.gameObject);
+                // Destroy(other.gameObject);
             }
             GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(5);
 

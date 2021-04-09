@@ -17,6 +17,10 @@ public class corona : MonoBehaviour
     private float _horizontalSpeed = 10f;
 
     [SerializeField] public Player _player;
+     
+    // -------------- impact effect on shoot -----------//
+  //  [SerializeField] private GameObject _impectEffect; 
+
     
     void Start()
     {
@@ -51,6 +55,7 @@ public class corona : MonoBehaviour
             
             other.GetComponent<Player>().damage(1); 
             Debug.LogWarning("this player collided with virus");
+            //Instantiate(_impectEffect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
         
@@ -61,7 +66,9 @@ public class corona : MonoBehaviour
             {
 
                 // destroying only the uv light
+                
                 Destroy(this.gameObject);
+                //Instantiate(_impectEffect, transform.position, Quaternion.identity);
                // GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(1);
             }
             else
@@ -69,9 +76,12 @@ public class corona : MonoBehaviour
                 // 3. if vaccine hits corona--> destroy both
                 // other.GetComponent<vaccine>().Point();
                 Debug.LogWarning("vaccine collided virus destroy both");
+              //  Instantiate(_impectEffect, transform.position, Quaternion.identity);
                 // destroying bonth
+                
                 Destroy(this.gameObject);
                 Destroy(other.gameObject);
+                
                 //GameObject.FindWithTag("Player").GetComponent<Player>().RelayScore(1);
             }
 
