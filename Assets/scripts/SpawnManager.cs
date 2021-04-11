@@ -44,6 +44,9 @@ public class SpawnManager : MonoBehaviour
     // creating a method to stop the spawning process
     public void playerDeathe()
     {
+        //FindObjectOfType<audiomanager>().play("player destroyed");
+        
+        FindObjectOfType<audiomanager>().play("player death");
         _spwanOn = false;
     }
 
@@ -114,49 +117,4 @@ public class SpawnManager : MonoBehaviour
 }
 
 
-
-//     //------------ laser light system ---------------- 
-//     
-//     IEnumerator FireLaser()
-//     {
-//         line.enabled = true;
-//         while (Input.GetButton("Fire1"))
-//         {
-//             Ray ray = new Ray(transform.position, transform.forward);
-//             RaycastHit hit;
-//  
-//             line.SetPosition(0, ray.origin);
-//  
-//             if (Physics.Raycast(ray, out hit, 100))
-//                 line.SetPosition(1, hit.point);
-//             else
-//                 line.SetPosition(1, ray.GetPoint(100));
-//  
-//             yield return null;
-//         }
-//  
-//         line.enabled = false;
-//  
-//     }
-// }
-
-    
-    // void virus()
-    // {
-    //     // we are just adding depaly in the if statement
-    //     if (Time.time > _createVirus )
-    //     {
-    //         // for creating random axis
-    //         Vector3 position = new Vector3(Random.Range(-20.0f, 8.0f), 14f,0 );
-    //         Debug.Log("virus created!");
-    //         
-    //         // creating more delay
-    //         _createVirus = Time.time + _vaccinationRate +1.0f ; 
-    //         
-    //         
-    //         //the object is being created here
-    //         Instantiate(_coronaPrefab, transform.position + position, Quaternion.identity);
-    //
-    //     }
-    // }
 

@@ -54,6 +54,7 @@ public class corona : MonoBehaviour
             // 2. if corona hits player --> player dead or damaged
             
             other.GetComponent<Player>().damage(1); 
+            FindObjectOfType<audiomanager>().play("hurt");
             Debug.LogWarning("this player collided with virus");
             //Instantiate(_impectEffect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);

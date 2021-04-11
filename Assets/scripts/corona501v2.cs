@@ -25,6 +25,12 @@ public class corona501v2 : MonoBehaviour
     {
         transform.Translate(Vector3.down * Time.deltaTime*_alienSpeed, Space.Self);
         infect();
+        
+        
+        if (transform.position.y < -8f)
+        {
+            Destroy(this.gameObject);
+        }
     }
     
     void infect()

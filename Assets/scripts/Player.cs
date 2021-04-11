@@ -7,42 +7,41 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 15f;
     [SerializeField] private GameObject _vaccinePrefab;
     [SerializeField] private GameObject _coronaPrefab;
-    
+
     // ---------------   for uv light  -------------- 
     [SerializeField] private GameObject _uvLight;
-    
-   // [SerializeField] private GameObject _Doughnut;
+
+    // [SerializeField] private GameObject _Doughnut;
     //[SerializeField] 
     private bool _useUvlight = false;
     [SerializeField] private float _uvraytime = 5f;
-    
+
     //[SerializeField] private float _life = 5f;
     [SerializeField] private float _vaccinationRate = 0.15f;
     [SerializeField] public float countPoint = 1f;
-    
+
 
     [SerializeField] private GameObject _spawnManager;
     // private corona _corona;
 
-    private float _canVaccinate = -1f; 
+    private float _canVaccinate = -1f;
     // private float _createVirus = -1f;
     // private MaterialPropertyBlock _mpb;
     // private float _colorChannel = 1f;
 // [SerializeField]
 //     public Transform firepoint;  
 //    public LineRenderer lineRenderer; 
-    
-                         //---- for adding score --- // 
+
+    //---- for adding score --- // 
 
     [SerializeField] private UIManager _uiManager;
 
-    
-    
-    
-                  // ------------- for bubble sheild - ---------------- // 
-    
-    [SerializeField] 
-    private GameObject _bubbleSheild;
+
+
+
+    // ------------- for bubble sheild - ---------------- // 
+
+    [SerializeField] private GameObject _bubbleSheild;
     private bool _useBubbleSheild = false;
     private float _sheildtime = 5f;
 
@@ -52,13 +51,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         _useUvlight = false;
-        _useBubbleSheild = false; 
-        
-    
-    // geting back to origin
+        _useBubbleSheild = false;
 
-    transform.position = new Vector3(0f, 0f, 0f);
-    
+
+        // geting back to origin
+
+        transform.position = new Vector3(0f, 0f, 0f);
+
 
     }
 
@@ -68,7 +67,7 @@ public class Player : MonoBehaviour
         _bubbleSheild.SetActive(true);
         playerMovment();
         vacciate();
-        
+
 
     }
 
@@ -91,40 +90,41 @@ public class Player : MonoBehaviour
             }
 
 
-          
+
             else
-            
+
             {
-                
-                Instantiate(_uvLight, transform.position + new Vector3(0,3.5f,0), Quaternion.identity);  
-                
+
+                Instantiate(_uvLight, transform.position + new Vector3(0, 3.5f, 0), Quaternion.identity);
+
             }
         }
     }
 
-    
+
     public void damage(int count)
     {
-        
-        _uiManager.countLife(count); 
-        
+
+        _uiManager.countLife(count);
+
         if (_uiManager._life == 0)
         {
+            FindObjectOfType<audiomanager>().play("player destroyed");
             Destroy(this.gameObject);
             // having null reference exception here  !!! ERROR !!!! 
             _spawnManager.GetComponent<SpawnManager>().playerDeathe();
         }
-        
-             
-        
 
-        
+
+
+
+
     }
 
     public void playerMovment()
     {
-        
-                        //---------- now trying to rotate --------------
+
+        //---------- now trying to rotate --------------
         // // Smoothly tilts a transform towards a target rotation.
         // float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
         // float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
@@ -134,49 +134,50 @@ public class Player : MonoBehaviour
         //
         // // Dampen towards the target rotation
         // transform.rotation = Quaternion.Slerp(transform.rotation, target,  Time.deltaTime * smooth);
-        
-                            // ---------- rotation code ended --------
-                            
+
+        // ---------- rotation code ended --------
+
         // getting the input axis from project manager(unity) > input
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        
+
         // making player rotate while moving 
-         transform.GetChild(0).Rotate(new Vector3(0f, -(horizontalInput * Time.deltaTime * _speed*1.5f), 0f),Space.World);
+        transform.GetChild(0).Rotate(new Vector3(0f, -(horizontalInput * Time.deltaTime * _speed * 1.5f), 0f),
+            Space.World);
 
         //  creating the movements from player
         Vector3 playerTranslate = new Vector3(1f * Time.deltaTime * _speed * horizontalInput,
             1f * Time.deltaTime * _speed * verticalInput, 0f);
 
         transform.Translate(playerTranslate);
-        
-        
-        
-        
+
+
+
+
         if (transform.position.x > -1.52f)
         {
-            transform.position = new Vector3(-1.52f,transform.position.y,0f);
+            transform.position = new Vector3(-1.52f, transform.position.y, 0f);
         }
-        else if(transform.position.x < -24f)
-        { 
-            transform.position = new Vector3(-24f,transform.position.y,0f);
-        }
-        
-        
-        if(transform.position.y< -7f)
+        else if (transform.position.x < -24f)
         {
-            transform.position = new Vector3(transform.position.x,-7f,0f);
+            transform.position = new Vector3(-24f, transform.position.y, 0f);
+        }
+
+
+        if (transform.position.y < -7f)
+        {
+            transform.position = new Vector3(transform.position.x, -7f, 0f);
         }
         else if (transform.position.y > 23f)
         {
             transform.position = new Vector3(transform.position.x, 23f, 0f);
         }
-        
+
     }
-    
-    
-        // ------------ this portion is for uvray collection ------------
+
+
+    // ------------ this portion is for uvray collection ------------
     public void enableUvray()
     {
         Debug.LogWarning("uv ray enabler accessed");
@@ -188,78 +189,57 @@ public class Player : MonoBehaviour
     IEnumerator disableUvray()
     {
         yield return new WaitForSeconds(_uvraytime);
-        _useUvlight = false; 
+        _useUvlight = false;
     }
-    
-    
-    
+
+
+
     // ----------------- for bubble sheild ------------ // 
 
     public void sheildActivation()
     {
-       // _bubbleSheild.SetActive(true);
-        
+        // _bubbleSheild.SetActive(true);
+
         if (_useBubbleSheild)
-                
+
         {
-           // _bubbleSheild.SetActive(true);
+            // _bubbleSheild.SetActive(true);
             Debug.LogWarning("Sheild has been activated");
-            
+
             Instantiate(_bubbleSheild, transform.position, Quaternion.identity);
-                
+
         }
-        
+
     }
 
     public void enableSheild()
     {
-        
+
         _useBubbleSheild = true;
-        
+
         sheildActivation();
         Debug.LogWarning("bubble sheild enabler accessed");
-        
-        
-       
+
+
+
         StartCoroutine(disableSheild());
 
     }
 
     public IEnumerator disableSheild()
     {
-       // _bubbleSheild.SetActive(true);
+        // _bubbleSheild.SetActive(true);
 
         yield return new WaitForSeconds(_sheildtime);
-       // DestroyImmediate(_bubbleSheild,true);
-       _bubbleSheild.SetActive(false);
+        // DestroyImmediate(_bubbleSheild,true);
+        _bubbleSheild.SetActive(false);
         _useBubbleSheild = false;
-       
-        
+
+
 
     }
-    
-    //-------------- for laser gun -------------- // 
-    // public float shootRate;
-    // private float m_shootRateTimeStamp;
-    //
-    // [SerializeField]
-    // public GameObject m_shotPrefab;
-    //
-    // RaycastHit hit;
-    // float range = 1000.0f;
-
-
-    // void shootRay()
-    // {
-    //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //     if (Physics.Raycast(ray, out hit, range))
-    //     {
-    //         GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
-    //        // laser.GetComponent<ShotBehavior>().setTarget(hit.point);
-    //         GameObject.Destroy(laser, 2f);
-    //
-    //
-    //     }
-    //
-    // }
 }
+    
+    
+
+    

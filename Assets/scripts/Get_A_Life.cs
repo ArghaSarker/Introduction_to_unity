@@ -25,7 +25,7 @@ public class Get_A_Life : MonoBehaviour
         //transform.Translate(Vector3.down * Time.deltaTime*_coronaSpeed, Space.World);
         if (name.Contains("Doughnut"))
         {
-            transform.Translate(Vector3.right * UnityEngine.Random.Range(-7f, 7f) * Time.deltaTime * _speedOfDoughnut , Space.World);
+            transform.Translate(Vector3.right * UnityEngine.Random.Range(-5f, 5f) * Time.deltaTime * _speedOfDoughnut , Space.World);
         }
         //--------------------------------
         
@@ -42,6 +42,7 @@ public class Get_A_Life : MonoBehaviour
         if (other.CompareTag("Player"))
         {   // here I have to add life
             GameObject.FindWithTag("Player").GetComponent<Player>().damage(-1);
+            FindObjectOfType<audiomanager>().play("life collecetd");
             //other.GetComponent<Player>().enableUvray();
             Debug.LogWarning("power collected");
             Destroy(this.gameObject);

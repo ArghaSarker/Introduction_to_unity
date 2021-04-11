@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7659630883546582068}
   - component: {fileID: -1197641710767899732}
   - component: {fileID: 3299861164983934829}
-  - component: {fileID: 6842119037998179924}
+  - component: {fileID: 4929469527146332017}
   m_Layer: 0
   m_Name: bubbleSheild
   m_TagString: vaccine
@@ -142,7 +142,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.28
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &6842119037998179924
+--- !u!82 &4929469527146332017
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,11 +152,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5207b2a445fcb144281ab5395fe95c1d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.28
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

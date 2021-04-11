@@ -30,24 +30,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1863678712929750567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389382004855945726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8719635854223468e9182ee514e306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _evilVaccinePrefab: {fileID: 1390188385832146720, guid: 0deeb4ee2a112e14d9e0b352e28b0f8a,
-    type: 3}
-  _alienSpeed: 3.56
-  _canInfect: -1
-  _infectionRate: 1
-  _alienlife: 2
 --- !u!82 &-4186709461483908397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -144,6 +126,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1863678712929750567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389382004855945726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8719635854223468e9182ee514e306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _evilVaccinePrefab: {fileID: 1390188385832146720, guid: 0deeb4ee2a112e14d9e0b352e28b0f8a,
+    type: 3}
+  _alienSpeed: 3.56
+  _canInfect: -1
+  _infectionRate: 3
+  _alienlife: 2
 --- !u!1001 &695301531910735023
 PrefabInstance:
   m_ObjectHideFlags: 0
