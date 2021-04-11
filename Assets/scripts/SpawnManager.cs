@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -32,8 +33,11 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnUvray());
         StartCoroutine(SpawnDoughnut());
         StartCoroutine(SpawnBubble());
+        StartCoroutine(YourName());
 
     }
+
+    public float timeRemaining = 3f;
 
     // Update is called once per frame
     void Update()
@@ -48,6 +52,19 @@ public class SpawnManager : MonoBehaviour
         
         FindObjectOfType<audiomanager>().play("player death");
         _spwanOn = false;
+        
+        
+        SceneManager.LoadScene(0);
+        
+
+
+    }
+    IEnumerator YourName()
+    {
+        //you can replace 3 with the amount of seconds to wait
+        //for a time like 1.2 seconds, use 1.2f (to show it's a float)
+        yield return new WaitForSeconds(3);
+        Debug.Log("Finished waiting!");
     }
 
     IEnumerator SpawnSystem()
@@ -59,7 +76,7 @@ public class SpawnManager : MonoBehaviour
             //virus();
             // instantiate the viruses
             Instantiate(_virusPrefabs[UnityEngine.Random.Range(0, _virusPrefabs.Count)],
-                new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity, this.transform);
+                new Vector3(Random.Range(-24.0f, -1.52f), 32f, 0), Quaternion.identity, this.transform);
             //wait for delay
             yield return new WaitForSeconds(_delay);
         }
@@ -74,7 +91,7 @@ public class SpawnManager : MonoBehaviour
 
 
             // instantiate the uvray
-            Instantiate(_uvrayprefab, new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity);
+            Instantiate(_uvrayprefab, new Vector3(Random.Range(-24.0f, -1.52f), 32f, 0), Quaternion.identity);
             Debug.LogWarning("uv has been created");
             //wait for delay
             yield return new WaitForSeconds(_uvrayrate);
@@ -90,7 +107,7 @@ public class SpawnManager : MonoBehaviour
 
 
             // instantiate the uvray
-            Instantiate(_doughnut, new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity);
+            Instantiate(_doughnut, new Vector3(Random.Range(-24.0f, -1.52f), 32f, 0), Quaternion.identity);
             Debug.LogWarning("Doughnut has been created");
             //wait for delay
             yield return new WaitForSeconds(_doughnutrate);
@@ -107,7 +124,7 @@ public class SpawnManager : MonoBehaviour
 
 
             // instantiate the uvray
-            Instantiate(_bubblePower, new Vector3(Random.Range(-24.0f, -1.52f), 23f, 0), Quaternion.identity);
+            Instantiate(_bubblePower, new Vector3(Random.Range(-24.0f, -1.52f), 32f, 0), Quaternion.identity);
             Debug.LogWarning("Doughnut has been created");
             //wait for delay
             yield return new WaitForSeconds(_bubblerate);

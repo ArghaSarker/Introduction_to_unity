@@ -25,12 +25,7 @@ public class Player : MonoBehaviour
     // private corona _corona;
 
     private float _canVaccinate = -1f;
-    // private float _createVirus = -1f;
-    // private MaterialPropertyBlock _mpb;
-    // private float _colorChannel = 1f;
-// [SerializeField]
-//     public Transform firepoint;  
-//    public LineRenderer lineRenderer; 
+    
 
     //---- for adding score --- // 
 

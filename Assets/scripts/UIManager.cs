@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private TMP_Text _scoreText; 
     [SerializeField] private TMP_Text _gameText;
-    [SerializeField] private TMP_Text _lifeText;
+   // [SerializeField] private TMP_Text _lifeText;
 
     [SerializeField] private TMP_Text _gameOver;
     
@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _scoreText.text = "Score : " + _score;
-        _lifeText.text = "Life :" + _life;
+       // _lifeText.text = "Life :" + _life;
         HealthStatus.setMaxHealth(5);
 
     }
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         _scoreText.text = "Score : " + _score;
-        _lifeText.text = "Life :" + _life;
+        //_lifeText.text = "Life :" + _life;
         if (_life == 0)
         {
             _gameOver.text = "You Failed to Protect the Earth!!!" ; 
