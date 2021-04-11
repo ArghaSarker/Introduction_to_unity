@@ -26,7 +26,7 @@ public class audiomanager : MonoBehaviour
     }
 
     
-    
+    //this is example
 
     // Update is called once per frame
     public void play(string name)
