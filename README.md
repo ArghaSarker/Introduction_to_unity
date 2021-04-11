@@ -20,6 +20,8 @@ Extraterrestrials have different powers and components to fight against Humans.
       UFO → They call themselves the forgotten Martians. They are faster and can move in an unpredictable manner. [Destroy them to get 3 points.] 
 
       Virus → The weakest enemy in the game. But, they are a lot. Destroy them to get easy points. [you get 1 point to destroy them]
+      
+We have used Blender to create some of our characters for the game. The super-fast UFOs and Scary Alien Heads and the Life-saving Doughnuts are created with Blender to create a cool vibe to the game. Don’t be afraid to play. Just shoot.
 
 
 This game also has a Main Menu to help you navigate the game. In the instruction menu, the functionalities and the components of the games are described. This game has awesome sound effects and background music to motivate you to destroy the Aliens and protect the earth. 
