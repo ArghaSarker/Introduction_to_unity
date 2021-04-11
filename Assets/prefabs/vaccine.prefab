@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1983993758029631032}
   - component: {fileID: 1455116114}
   - component: {fileID: 1998140102971019940}
+  - component: {fileID: 2324346186164913655}
   m_Layer: 0
   m_Name: vaccine
   m_TagString: vaccine
@@ -226,3 +227,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2324346186164913655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390188385832146720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84402963a143c2241898f299823abe67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coronaSpeed: 7
+  _horizontalSpeed: 10
+  _player: {fileID: 0}

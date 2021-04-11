@@ -11,7 +11,7 @@ public class corona501v2 : MonoBehaviour
     [SerializeField]
     private float _canInfect = -1f;
     [SerializeField]
-    private float _infectionRate = 1f;
+    private float _infectionRate = 3f;
 
     [SerializeField] private int _alienlife = 3;
     // Start is called before the first frame update
@@ -60,6 +60,7 @@ public class corona501v2 : MonoBehaviour
             // 2. if corona hits player --> player dead or damaged
             
             other.GetComponent<Player>().damage(1); 
+            FindObjectOfType<audiomanager>().play("hurt");
             Debug.LogWarning("this player collided with virus");
             Destroy(this.gameObject);
         }
